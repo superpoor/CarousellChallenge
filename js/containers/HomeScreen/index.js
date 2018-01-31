@@ -2,6 +2,7 @@ import React from 'react'
 import {
   View, 
   Text,
+  Button,
   FlatList,
   StyleSheet
 } from 'react-native'
@@ -29,6 +30,18 @@ class HomeScreen extends React.PureComponent {
     topics: PropTypes.array.isRequired,
     isFetchingTopics: PropTypes.bool.isRequired,
     fetchTopics: PropTypes.func.isRequired
+  };
+
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: "Carousell",
+      headerRight: (
+        <Button  
+          title="NEW"
+          onPress={() => navigation.navigate("NewTopic")}
+        />
+      )
+    }
   };
 
   _renderItem = ({item}) => {
