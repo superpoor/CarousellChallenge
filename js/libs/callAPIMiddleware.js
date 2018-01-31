@@ -1,3 +1,6 @@
+/*
+  Store middleware to send async actions, for example request to server, third party api, ...
+*/
 export default function callAPIMiddleware({ dispatch, getState }) {
   return next => action => {
     const {

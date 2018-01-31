@@ -6,13 +6,17 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 
+import Button from '../../components/button'
+
 class TopicItem extends React.PureComponent {
   static propTypes = {
-    topic: PropTypes.object.isRequired
+    topic: PropTypes.object.isRequired,
+    isUpdatingVote: PropTypes.bool.isRequired,
+    onUpdateVote: PropTypes.func.isRequired,
   };
 
   render() {
-    const { topic } = this.props;
+    const { topic, isUpdatingVote, onUpdateVote } = this.props;
 
     return (
       <View style={styles.container}>
@@ -21,6 +25,11 @@ class TopicItem extends React.PureComponent {
           <View style={styles.voteCountContainer}>
             <Text style={styles.vote}>{topic.votes} votes</Text>
           </View>
+
+          <Button title="UP VOTE" backgroundColor="#B02623" titleColor="white" 
+            disabled={isUpdatingVote} onPress={() => { onUpdateVote(topic.id, 1) }} />
+          <Button title="DOWN VOTE" disabled={isUpdatingVote} 
+            onPress={() => { onUpdateVote(topic.id, -1) }} />
         </View>
       </View>
     )
@@ -42,6 +51,7 @@ const styles = StyleSheet.create({
   voteContainer: {
     flexDirection: 'row',
     marginTop: 10,
+    alignItems: 'center'
   },
   voteCountContainer: {
     backgroundColor: '#F6F6F6',

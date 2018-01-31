@@ -6,7 +6,10 @@ import {
   FETCH_TOPICS_SUCCESS,
 
   ADD_NEW_TOPIC_REQUEST,
-  ADD_NEW_TOPIC_SUCCESS
+  ADD_NEW_TOPIC_SUCCESS,
+
+  UPDATE_VOTE_REQUEST,
+  UPDATE_VOTE_SUCCESS,
 } from '../actions/topics'
 
 const initialState = {
@@ -14,6 +17,7 @@ const initialState = {
   isFetching: false,
   lastFetch: 0,
   isAddingNewTopic: false,
+  isUpdatingVoteIds: [],
 }
 
 export default createReducer(state = initialState, {
@@ -41,6 +45,24 @@ export default createReducer(state = initialState, {
     return update(state, {
       byId: {$merge: {[newTopic.id]: newTopic}},
       isAddingNewTopic: {$set: false},
+    });
+  },
+
+  [UPDATE_VOTE_REQUEST]: (state, action) => {
+    return update(state, {isUpdatingVoteIds: {$push: [action.payload.topicId]}});
+  },
+
+  [UPDATE_VOTE_SUCCESS]: (state, action) => {
+    const { topicId, deltaValue } = action.response;
+
+    return update(state, {
+      byId: {[topicId]: {votes: {$apply: votes => Math.max(0, votes + deltaValue)}}},
+      isUpdatingVoteIds: {$apply: list => {
+        const newList = [...list];
+        for (let index = newList.indexOf(topicId); index != -1; index = newList.indexOf(topicId)) 
+          newList.splice(index, 1);
+        return newList;
+      }},
     });
   },
 });

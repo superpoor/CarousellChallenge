@@ -12,16 +12,18 @@ import { bindActionCreators } from 'redux'
 
 import TopicItem from './TopicItem'
 import Loading from '../../components/loading'
-import { fetchTopics } from '../../actions/topics'
+import { fetchTopics, updateVote } from '../../actions/topics'
 import { getSortedTopicsByVote } from '../../selectors/topics' 
 
 @connect(
   state => ({
     topics: getSortedTopicsByVote(state),
-    isFetchingTopics: state.topics.isFetching 
+    isFetchingTopics: state.topics.isFetching,
+    isUpdatingVoteIds: state.topics.isUpdatingVoteIds,
   }),
   dispatch => bindActionCreators({
-    fetchTopics
+    fetchTopics,
+    updateVote
   }, dispatch)
 )
 class HomeScreen extends React.PureComponent {
@@ -29,6 +31,7 @@ class HomeScreen extends React.PureComponent {
   static propTypes = {
     topics: PropTypes.array.isRequired,
     isFetchingTopics: PropTypes.bool.isRequired,
+    isUpdatingVoteIds: PropTypes.array.isRequired,
     fetchTopics: PropTypes.func.isRequired
   };
 
@@ -46,12 +49,12 @@ class HomeScreen extends React.PureComponent {
 
   _renderItem = ({item}) => {
     return (
-      <TopicItem key={item.id} topic={item} />
+      <TopicItem key={item.id} topic={item} isUpdatingVote={this.props.isUpdatingVoteIds.includes(item.id)} onUpdateVote={this._onUpdateVote} />
     )
   }
 
   render() {
-    const { topics, isFetchingTopics } = this.props;
+    const { topics, isFetchingTopics, isUpdatingVoteIds } = this.props;
 
     if (isFetchingTopics) return <Loading />
 
@@ -59,6 +62,7 @@ class HomeScreen extends React.PureComponent {
       <View style={styles.listContainer}>
         <FlatList 
           keyExtractor={item => item.id}
+          extraData={isUpdatingVoteIds}
           data={topics}
           renderItem={this._renderItem}
         />
@@ -68,6 +72,10 @@ class HomeScreen extends React.PureComponent {
 
   componentDidMount() {
     this.props.fetchTopics();
+  }
+
+  _onUpdateVote = (topicId, deltaValue) => {
+    this.props.updateVote(topicId, deltaValue);
   }
 }
 

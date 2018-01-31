@@ -37,6 +37,7 @@ export default class Root extends React.PureComponent {
     BackHandler.removeEventListener("hardwareBackPress", this.onBackPress);
   }
 
+  // This handler to handle back button press on Android
   onBackPress = () => {
     const { dispatch, mainNav } = this.props;
     if ( mainNav.index === 0) {

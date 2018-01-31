@@ -14,6 +14,7 @@ const MainRouter = StackNavigator({
 
 const initialState = MainRouter.router.getStateForAction(MainRouter.router.getActionForPathAndParams('Home'));
 
+// Custom reducer for Main Router, to integrate with redux store.
 export const mainNavReducer = (state = initialState, action) => {
   let nextState;
   switch (action.type) {
