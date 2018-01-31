@@ -4,12 +4,13 @@ import {
   applyMiddleware 
 } from 'redux';
 import thunk from 'redux-thunk';
+import logger from 'redux-logger'
 
 import callAPIMiddleware from '../libs/callAPIMiddleware'
 import reducers from '../reducers';
 
 // Setup all of your middlewares here
-const middlewares = [thunk, callAPIMiddleware];
+const middlewares = [logger, thunk, callAPIMiddleware];
 
 const configureStore = () => {
   const store = createStore(

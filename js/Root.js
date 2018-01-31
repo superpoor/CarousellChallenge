@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 
-import TopicsScreen from './containers/TopicsScreen'
+import MainRouter from './routes/MainRouter'
 
 export default class Root extends React.PureComponent {
   static propTypes = {
@@ -14,7 +14,7 @@ export default class Root extends React.PureComponent {
 
     return (
       <Provider store={store}>
-        <TopicsScreen />
+        <MainRouter />
       </Provider>
     )
   }

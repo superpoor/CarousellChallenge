@@ -1,0 +1,54 @@
+{
+  "topics": [
+    {
+      "id": "fdd6ab0f-9c50-4792-a244-64f9fd9e54cd",
+      "content": "How can I reverse the number and check the palindrome with a bitwise operator in C?",
+      "votes": 5
+    },
+    {
+      "id": "4b142035-b0c0-4276-bb9f-a2cb8b0ec36f",
+      "content": "I have a lot of co-workers in Google who have not even heard of Competitive Programming.\nConversely, I also have several friends who are very strong in competitive programming but failed their interview for Google. In my personal opinion, understanding software engineering and algorithm and data structures concepts from college (not necessarily advanced algorithm used in solving competitive programming problems ) is the key part to get a job at Google.",
+      "votes": 7
+    },
+    {
+      "id": "bf58ec67-fc05-4e61-b2cc-4a381b1e5bb1",
+      "content": "Everything is possible in this world given you are passionate enough to work hard for it. Since, you are aiming for Google, I assume that you are already smart enough.",
+      "votes": 8
+    },
+    {
+      "id": "32f8790a-9f0f-402f-a7e5-f497379bc9cc",
+      "content": "Where should I (a beginner with basic programming language) start learning Android hardware accessory development?",
+      "votes": 4
+    },
+    {
+      "id": "f290f418-a153-43b5-a261-4e0774b7fac8",
+      "content": "Once you get good at this, I would say you have a slight chance of making Android hardware accessories. You need to start at square one like everyone else. Then square 2, 3 and so on. This takes time and this isn’t easy. This is very entertaining to do.",
+      "votes": 5
+    },
+    {
+      "id": "d78beb03-0282-4eb9-86b5-5afe6487ec7f",
+      "content": "You can have so much fun doing this, and I am sure eventually you will have your house full of Arduino monitoring your plants and other things.",
+      "votes": 9
+    },
+    {
+      "id": "1bfdf7cf-c529-4057-b4a2-368e49109fe6",
+      "content": "Why do a lot of C, Haskell, and LISP programmers tell me to use Linux and vim/Emacs when I only want to learn the language?",
+      "votes": 4
+    },
+    {
+      "id": "26a5af8e-234d-4b13-89fd-c663b14b6dcd",
+      "content": "First, I will tackle the question of “Why Linux?” The answer is pretty simple: Linux (and Unix, for that matter) was designed and built by programmers, for programmers. Thus, the Command Line has always been easily accessible, and the command line has been continuously improved to make the life of a software developer much simpler.",
+      "votes": 2
+    },
+    {
+      "id": "e2cd1314-fa1e-410f-9f09-a349cc169cf7",
+      "content": "Editor you choose has no bearing on your programming skills but choose the one which is popular for that language and for which you can get online help.",
+      "votes": 0
+    },
+    {
+      "id": "0d86fe13-ceb8-4f38-b22c-9c6b66a7e180",
+      "content": "So, there you have it: Linux is great because it’s developer friendly, and Vim/Emacs are great for the same reasons. They aren’t necessarily great for beginners, though.",
+      "votes": 2
+    }
+  ]
+}
