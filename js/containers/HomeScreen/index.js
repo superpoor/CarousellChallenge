@@ -15,24 +15,14 @@ import Loading from '../../components/loading'
 import { fetchTopics, updateVote } from '../../actions/topics'
 import { getSortedTopicsByVote } from '../../selectors/topics' 
 
-@connect(
-  state => ({
-    topics: getSortedTopicsByVote(state),
-    isFetchingTopics: state.topics.isFetching,
-    isUpdatingVoteIds: state.topics.isUpdatingVoteIds,
-  }),
-  dispatch => bindActionCreators({
-    fetchTopics,
-    updateVote
-  }, dispatch)
-)
-class HomeScreen extends React.PureComponent {
+export class HomeScreen extends React.PureComponent {
 
   static propTypes = {
     topics: PropTypes.array.isRequired,
     isFetchingTopics: PropTypes.bool.isRequired,
     isUpdatingVoteIds: PropTypes.array.isRequired,
-    fetchTopics: PropTypes.func.isRequired
+    fetchTopics: PropTypes.func.isRequired,
+    updateVote: PropTypes.func.isRequired
   };
 
   static navigationOptions = ({ navigation }) => {
@@ -79,6 +69,7 @@ class HomeScreen extends React.PureComponent {
   }
 }
 
+
 const styles = StyleSheet.create({
   listContainer: {
     flex: 1,
@@ -86,4 +77,15 @@ const styles = StyleSheet.create({
   }
 })
 
-export default HomeScreen;
+
+export default connect(
+  state => ({
+    topics: getSortedTopicsByVote(state),
+    isFetchingTopics: state.topics.isFetching,
+    isUpdatingVoteIds: state.topics.isUpdatingVoteIds,
+  }),
+  dispatch => bindActionCreators({
+    fetchTopics,
+    updateVote
+  }, dispatch)
+)(HomeScreen);

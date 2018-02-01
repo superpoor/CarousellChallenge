@@ -10,7 +10,7 @@ import callAPIMiddleware from '../libs/callAPIMiddleware'
 import reducers from '../reducers';
 
 // Setup all of your middlewares here
-const middlewares = [logger, thunk, callAPIMiddleware];
+const middlewares = [thunk, callAPIMiddleware];
 
 const configureStore = () => {
   const store = createStore(

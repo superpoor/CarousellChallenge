@@ -16,19 +16,12 @@ import Loading from '../../components/loading'
 import { addNewTopic } from '../../actions/topics'
 
 
-@connect(
-  state => ({
-    isAddingNewTopic: state.topics.isAddingNewTopic
-  }),
-  dispatch => bindActionCreators({
-    addNewTopic
-  }, dispatch)
-)
-class NewTopicScreen extends React.PureComponent {
+export class NewTopicScreen extends React.PureComponent {
 
   static propTypes = {
     isAddingNewTopic: PropTypes.bool.isRequired,
     addNewTopic: PropTypes.func.isRequired,
+    navigation: PropTypes.object.isRequired
   };
 
   static navigationOptions = ({ navigation }) => {
@@ -105,4 +98,11 @@ const styles = StyleSheet.create({
   }
 })
 
-export default NewTopicScreen;
+export default connect(
+  state => ({
+    isAddingNewTopic: state.topics.isAddingNewTopic
+  }),
+  dispatch => bindActionCreators({
+    addNewTopic
+  }, dispatch)
+)(NewTopicScreen);

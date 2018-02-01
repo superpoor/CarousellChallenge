@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test NewTopicScreen component renders correct HomeScreen component while submiting topic 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <ActivityIndicator
+    animating={true}
+    color="#999999"
+    hidesWhenStopped={true}
+    size="large"
+  />
+</View>
+`;
+
+exports[`Test NewTopicScreen component renders correct NewTopicScreen component 1`] = `
+<View
+  keyboardVerticalOffset={64}
+  onLayout={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "flex": 1,
+      },
+      Object {
+        "paddingBottom": 0,
+      },
+    ]
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    multiline={true}
+    onChangeText={[Function]}
+    placeholder="Type your topic here"
+    style={
+      Object {
+        "color": "#545454",
+        "flex": 1,
+        "fontSize": 16,
+        "marginVertical": 20,
+        "padding": 20,
+        "textAlignVertical": "top",
+      }
+    }
+    underlineColorAndroid="transparent"
+    value=""
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#747474",
+        "fontSize": 14,
+        "paddingBottom": 10,
+        "paddingRight": 10,
+        "textAlign": "right",
+      }
+    }
+  >
+    255
+     characters left
+  </Text>
+</View>
+`;
